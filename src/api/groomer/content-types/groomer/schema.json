@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "groomers",
+  "info": {
+    "singularName": "groomer",
+    "pluralName": "groomers",
+    "displayName": "Groomer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "availableHours": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "biginteger"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "parkingAvailable": {
+      "type": "boolean",
+      "default": false
+    },
+    "location": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::location.location",
+      "inversedBy": "groomers"
+    },
+    "portfolios": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::portfolio.portfolio",
+      "mappedBy": "groomer"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "groomer"
+    },
+    "service_prices": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service-price.service-price",
+      "mappedBy": "groomer"
+    }
+  }
+}

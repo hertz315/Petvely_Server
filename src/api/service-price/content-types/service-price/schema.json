@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "service_prices",
+  "info": {
+    "singularName": "service-price",
+    "pluralName": "service-prices",
+    "displayName": "ServicePrice"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "dogType": {
+      "type": "enumeration",
+      "enum": [
+        "smallDog",
+        "middleDog",
+        "largeDog",
+        "specialDog"
+      ],
+      "required": false
+    },
+    "serviceType": {
+      "type": "enumeration",
+      "enum": [
+        "bath",
+        "inviteGroomer",
+        "visitGroomer"
+      ]
+    },
+    "groomer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::groomer.groomer",
+      "inversedBy": "service_prices"
+    }
+  }
+}

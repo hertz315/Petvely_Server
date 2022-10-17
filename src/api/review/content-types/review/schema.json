@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reviews",
+  "info": {
+    "singularName": "review",
+    "pluralName": "reviews",
+    "displayName": "review"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "textBody": {
+      "type": "richtext"
+    },
+    "recommended": {
+      "type": "boolean",
+      "default": false
+    },
+    "groomer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::groomer.groomer",
+      "inversedBy": "reviews"
+    }
+  }
+}
